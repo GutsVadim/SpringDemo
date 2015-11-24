@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Demo Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="/css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<form action="/notes/add" th:method="POST">
+    <input type="text" th:name="title"/><br/><br/>
+    <textarea name="text" id="" cols="30" rows="10"></textarea><br/>
+    <input type="submit" value="Add"/>
+</form>
+
+<table>
+    <tr th:each="note : ${notes}">
+        <td th:text="${note.title}"></td>
+        <td th:text="${note.text}"></td>
+    </tr>
+</table>
+
+
+<script src="/webjars/jquery/2.1.4/jquery.min.js"></script>
+</body>
+</html>
